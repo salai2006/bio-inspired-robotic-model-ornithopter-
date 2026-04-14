@@ -1,0 +1,24 @@
+#include <Servo.h>
+
+Servo wingServo;
+
+int pos = 0;
+
+void setup() {
+  wingServo.attach(9);  // Servo connected to pin 9
+}
+
+void loop() {
+
+  // Flap forward
+  for (pos = 60; pos <= 120; pos += 2) {
+    wingServo.write(pos);
+    delay(20);   // Control flapping speed
+  }
+
+  // Flap backward
+  for (pos = 120; pos >= 60; pos -= 2) {
+    wingServo.write(pos);
+    delay(20);
+  }
+}
